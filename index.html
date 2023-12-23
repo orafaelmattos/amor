@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="src/favicon-16x16.png" type="image/icon">
+  <title>Amor</title>
+</head>
+<body>
+
+  <div class="boxcenter">
+    <h1 class="title">Você me ama?</h1>
+    <iframe src="https://giphy.com/embed/3oriO6qJiXajN0TyDu" width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/love-heart-valentine-3oriO6qJiXajN0TyDu"></a></p>
+    <a href="https://www.youtube.com/shorts/pKb__YU9UtY" target="_blank"><button class="yesButton" id="yesButton">Sim</button></a>
+    <button class="noButton" id="noButton" onmouseover="moveButton()"
+    ontouchstart="moveButton()">Não!</button>
+    <audio src="src/Taylor Swift - Love Story.mp3" autoplay></audio>
+  </div>
+
+  <style>
+    body{
+  background: red;
+}
+
+.boxcenter{
+  height: 500px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 3px 3px 10px rgb(41, 41, 41);
+  position: relative;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 50px;
+  font-size: 40px;
+  padding: 10px;
+}
+
+.yesButton{
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.yesButton:hover{
+  box-shadow: 2px 2px 10px rgb(67, 66, 66);
+}
+
+.noButton{
+  background: none;
+  color: black; 
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  width: 20%;
+  height: 50px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+}
+
+.noButton:hover{
+  box-shadow: 2px 2px 10px rgb(67, 66, 66);
+}
+
+@media screen and (max-width: 600px) {
+      .boxcenter {
+        width: 80%; /* Reduzir a largura do contêiner em telas pequenas */
+      }
+    }
+     
+iframe {
+      max-width: 300px; /* Limitar a largura do iframe em telas pequenas */
+      width: 100%;
+    }
+
+
+  </style>
+
+  <script>
+
+function moveButton() {
+  var noButton = document.getElementById("noButton");
+  var boxCenter = document.querySelector(".boxcenter");
+
+  var larguraJanela = boxCenter.clientWidth;
+  var alturaJanela = boxCenter.clientHeight;
+
+  var maxX = larguraJanela - noButton.offsetWidth;
+  var maxY = alturaJanela - noButton.offsetHeight;
+
+  var aleatorioX = Math.max(0, Math.min(Math.floor(Math.random() * maxX), maxX));
+  var aleatorioY = Math.max(0, Math.min(Math.floor(Math.random() * maxY), maxY));
+
+  noButton.style.left = aleatorioX + "px";
+  noButton.style.top = aleatorioY + "px";
+}
+  </script>
+  
+</body>
+</html>
